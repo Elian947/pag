@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Alguien Especial</title>
+    <style>
+        /* Estilos generales de la página */
+        body {
+            background-color: #fce4ec; /* Fondo rosa pastel */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #4a148c; /* Letras en tono morado elegante */
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            overflow-x: hidden; /* Evita que los corazones ensanchen la pantalla */
+        }
+
+        /* Contenedor principal centrado */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white; /* Tarjeta blanca para resaltar el texto */
+            padding: 30px;
+            border-radius: 20px; /* Bordes redondeados */
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05); /* Sombra suave */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #d81b60; /* Rosa fuerte para el título */
+            margin-bottom: 5px;
+        }
+
+        .subtitulo {
+            font-style: italic;
+            color: #880e4f;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para el contador de tiempo */
+        .contador-box {
+            background: linear-gradient(135deg, #ff80ab, #f50057);
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(245, 0, 87, 0.2);
+        }
+
+        .contador-titulo {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            opacity: 0.9;
+        }
+
+        #tiempo {
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Bloques individuales para los poemas o cartas */
+        .poema-box {
+            background-color: #fff5f8; /* Fondo sutil rosa claro */
+            border-left: 4px solid #d81b60; /* Línea decorativa rosa al costado */
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            text-align: left; /* Texto alineado a la izquierda para mejor lectura */
+        }
+
+        .poema-titulo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #d81b60;
+            margin-bottom: 10px;
+        }
+
+        .poema-texto {
+            line-height: 1.6;
+            white-space: pre-line; /* Respeta los renglones y saltos de línea */
+            font-size: 1.1rem;
+        }
+
+        /* Estilo de la imagen */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-top: 20px;
+            border: 3px solid #fce4ec;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #ad1457;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Para el amor de mi vida</h1>
+        <p class="subtitulo">Un pequeño detalle hecho con mucho amor... ❤️</p>
+
+        <div class="contador-box">
+            <div class="contador-titulo">Tiempo compartiendo nuestras vidas:</div>
+            <div id="tiempo">Cargando nuestro tiempo juntos...</div>
+        </div>
+
+        <div class="poema-box">
+            <div class="poema-titulo">✨ Desde que te conocí</div>
+            <div class="poema-texto">
+                Mi vida cambio por completo desde entoces cada dia a tu lado es un regalo, 
+                 cada momento contigo es un tesoro que guardo en mi corazón.
+                
+                Eres lo más bonito que me ha pasado,
+                y a tu lado el mundo es mucho mejor.
+            </div>
+        </div>
+
+        <div class="poema-box">
+            <div class="poema-titulo">🌹 Una pequeña dedicatoria</div>
+            <div class="poema-texto">
+                Eres mi sol en los días nublados, mi refugio en las tormentas, 
+                y la razón por la que sonrío sin motivo. 
+                
+                Gracias por ser tú, por compartir tu vida conmigo, 
+                te amo más de lo que las palabras pueden expresar, y espero seguir construyendo recuerdos juntos por siempre.
+            </div>
+        </div>
+
+         "TE AMO"
+
+        <footer>
+            <p>Hecho con Amor por Elian para ti • 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // --- 1. EFECTO DE CORAZONES FLOTANTES ---
+        function crearCorazon() {
+            const corazon = document.createElement('div');
+            corazon.innerHTML = '❤️';
+            corazon.style.position = 'fixed';
+            corazon.style.left = Math.random() * 100 + 'vw';
+            corazon.style.top = '-5vh';
+            corazon.style.fontSize = Math.random() * (30 - 15) + 15 + 'px';
+            corazon.style.opacity = Math.random() * (1 - 0.4) + 0.4;
+            corazon.style.pointerEvents = 'none';
+            corazon.style.zIndex = '9999';
+            corazon.style.transition = 'transform 4s linear, opacity 4s linear';
+            
+            document.body.appendChild(corazon);
+
+            setTimeout(() => {
+                corazon.style.transform = `translateY(105vh) rotate(${Math.random() * 360}deg)`;
+            }, 50);
+
+            setTimeout(() => {
+                corazon.remove();
+            }, 4000);
+        }
+        setInterval(crearCorazon, 400);
+
+        // --- 2. CONTADOR DE TIEMPO REAL ---
+        // Configurado con la fecha: Viernes 13 de Febrero de 2026
+        const fechaInicio = new Date('2026-02-13T00:00:00'); 
+
+        function actualizarContador() {
+            const ahora = new Date();
+            const diferencia = ahora - fechaInicio;
+
+            // Cálculos matemáticos del tiempo
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            // Muestra el resultado en la pantalla
+            document.getElementById('tiempo').innerHTML = 
+                `${dias} días, ${horas} horas, ${minutos} min y ${segundos} seg`;
+        }
+        
+        // Ejecuta el contador al instante y se refresca cada segundo
+        actualizarContador();
+        setInterval(actualizarContador, 1000);
+    </script>
+
+</body>
+</html>
